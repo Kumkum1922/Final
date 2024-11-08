@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Reflection Writing Tool</title>
+    <style>
+        /* Basic Portfolio Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .header p {
+            font-size: 1.2em;
+        }
+        .content {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .project-title {
+            text-align: center;
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+        /* Reflection Tool Styles */
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            resize: vertical;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #004a99;
+        }
+        .output {
+            background-color: #e6f7ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+        .output h3 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>My Portfolio</h1>
+    <p>Projects and Tools</p>
+</div>
+
+<div class="content">
+    <h2 class="project-title">Reflection Writing Tool</h2>
+    <p>This tool is designed to help you structure and write a personal reflection based on a six-step process. Fill in each section to generate a complete reflection.</p>
+
+    <div class="container">
+        <label for="step1">Step 1 - Describe the Experience:</label>
+        <textarea id="step1" rows="4" placeholder="What happened? Describe the experience."></textarea>
+
+        <label for="step2">Step 2 - Feelings:</label>
+        <textarea id="step2" rows="4" placeholder="How did you feel during the experience?"></textarea>
+
+        <label for="step3">Step 3 - Evaluation:</label>
+        <textarea id="step3" rows="4" placeholder="What was positive or challenging about the experience?"></textarea>
+
+        <label for="step4">Step 4 - Analysis:</label>
+        <textarea id="step4" rows="4" placeholder="Why did things happen this way?"></textarea>
+
+        <label for="step5">Step 5 - Conclusion:</label>
+        <textarea id="step5" rows="4" placeholder="What did you learn from this experience?"></textarea>
+
+        <label for="step6">Step 6 - Action Plan:</label>
+        <textarea id="step6" rows="4" placeholder="What will you do differently next time?"></textarea>
+
+        <button onclick="generateReflection()">Generate Reflection</button>
+
+        <div class="output" id="reflectionOutput">
+            <h3>Your Reflection:</h3>
+            <p id="outputText"></p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 My Portfolio | All Rights Reserved</p>
+</footer>
+
+<script>
+    function generateReflection() {
+        // Collecting the values from the text areas
+        const step1 = document.getElementById("step1").value;
+        const step2 = document.getElementById("step2").value;
+        const step3 = document.getElementById("step3").value;
+        const step4 = document.getElementById("step4").value;
+        const step5 = document.getElementById("step5").value;
+        const step6 = document.getElementById("step6").value;
+
+        // Creating the reflection text
+        const reflectionText = `
+        <strong>Step 1 - Describe the Experience:</strong><br>${step1}<br><br>
+        <strong>Step 2 - Feelings:</strong><br>${step2}<br><br>
+        <strong>Step 3 - Evaluation:</strong><br>${step3}<br><br>
+        <strong>Step 4 - Analysis:</strong><br>${step4}<br><br>
+        <strong>Step 5 - Conclusion:</strong><br>${step5}<br><br>
+        <strong>Step 6 - Action Plan:</strong><br>${step6}
+        `;
+
+        // Displaying the reflection
+        document.getElementById("outputText").innerHTML = reflectionText;
+        document.getElementById("reflectionOutput").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
